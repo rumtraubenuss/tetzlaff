@@ -26,5 +26,8 @@
   "bugs": {
     "url": "https://github.com/rumtraubenuss/tetzlaff/issues"
   },
-  "homepage": "https://github.com/rumtraubenuss/tetzlaff#readme"
+  "homepage": "https://github.com/rumtraubenuss/tetzlaff#readme",
+  "engines": {
+    "node": "6.2.1"
+  }
 }
