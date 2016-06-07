@@ -1,8 +1,9 @@
+const path = require('path');
 const Tetzlaff = require('./lib/tetzlaff.js');
 
-const tez = new Tetzlaff({
+new Tetzlaff({
   token: 'YOUR_SLACK_BOT_TOKEN',
-  icon: 'URL_TO_ICON_IMAGE',
   name: 'BOT_NAME',
-  wordsFile: 'NAME_WORDFILE',
+  icon: 'URL_TO_ICON_IMAGE',
+  wordsFile: path.resolve(__dirname, 'NAME_WORD_FILE'),
 });
