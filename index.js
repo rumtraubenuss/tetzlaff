@@ -1,4 +1,3 @@
-const path = require('path');
 const Tetzlaff = require('./lib/tetzlaff.js');
 
 new Tetzlaff({
