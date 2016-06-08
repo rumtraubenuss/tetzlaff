@@ -1,4 +1,4 @@
-const Tetzlaff = require('./lib/tetzlaff.js');
+const Tetzlaff = require('./dist/tetzlaff.js');
 
 new Tetzlaff({
   token: process.env.token,
