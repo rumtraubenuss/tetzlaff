@@ -15,18 +15,15 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "better-npm-run build && better-npm-run start",
-    "build": "better-npm-run build",
+    "build": "babel src/tetzlaff.js --out-file dist/tetzlaff.js --presets es2015 --presets stage-0",
     "build:watch": "babel src/tetzlaff.js --out-file dist/tetzlaff.js --presets es2015 --presets stage-0 --watch",
-    "postinstall": "better-npm-run build",
+    "postinstall": "npm run build",
     "heroku:off": "heroku maintenance:on && heroku ps:scale worker=0",
     "heroku:on": "heroku ps:scale worker=1 && heroku maintenance:off"
   },
   "betterScripts": {
     "start": {
       "command": "node index.js"
-    },
-    "build": {
-      "command": "babel src/tetzlaff.js --out-file dist/tetzlaff.js --presets es2015 --presets stage-0"
     }
   },
   "repository": {
