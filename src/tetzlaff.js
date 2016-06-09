@@ -1,5 +1,6 @@
 'use strict';
 
+const fs = require('fs');
 const readline = require('readline');
 const path = require('path');
 const Bot = require('slackbots');
@@ -22,9 +23,13 @@ class Tetzlaff extends Bot {
   }
 
   loadWords() {
-    const lineReader = readline.createInterface({
-      input: request(this.settings.wordsFileUrl)
-    });
+    let input;
+    if (/^(https?:\/\/)/.test(this.settings.wordsFile)) {
+      input = request(this.settings.wordsFile);
+    } else {
+      input = fs.createReadStream(this.settings.wordsFile);
+    }
+    const lineReader = readline.createInterface({ input });
     lineReader.on('line', line => {
       this.words.push(line);
     });
