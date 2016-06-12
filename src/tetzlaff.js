@@ -19,22 +19,22 @@ class Tetzlaff extends Bot {
     this.on('start', this.init);
     this.on('message', this.onMessage);
 
-    this.loadWords();
+    this.loadWords(this.settings.wordsFile, this.words);
   }
 
-  loadWords() {
+  loadWords(file, target) {
     let input;
-    if (/^(https?:\/\/)/.test(this.settings.wordsFile)) {
-      input = request(this.settings.wordsFile);
+    if (/^(https?:\/\/)/.test(file)) {
+      input = request(file);
     } else {
-      input = fs.createReadStream(this.settings.wordsFile);
+      input = fs.createReadStream(file);
     }
     const lineReader = readline.createInterface({ input });
     lineReader.on('line', line => {
-      this.words.push(line);
+      target.push(line);
     });
     lineReader.on('close', () => {
-      console.log(`Loaded ${this.words.length} words.`);
+      console.log(`Loaded ${target.length} words.`);
     });
   }
 
